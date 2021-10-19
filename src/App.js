@@ -35,31 +35,44 @@ function App() {
 		handleStart();
 	};
 
-	const handleStop = () => {
+	const dbClick = () => {
+		setTimeout(handleWait(), 300)
+	}
+
+	const handleWait = () => {
 		if (time !== 0) {
 			setWatchOn(false);
 		}
 		setStatus(2);
 	};
 
+	const handleStop = () => {
+		setTime(0);
+		setWatchOn(false);
+		setStatus(0);
+
+	};
+
 	const handleReset = () => {
 		setTime(0);
 		setWatchOn(false);
 		setStatus(0);
+		handleStart();
 	};
 
 	return (
 		<div className="App">
 			<div className="main-section">
-				<div className="clock-holder" onDoubleClick={handleStop}>
+				<div className="clock-holder" onDoubleClick={dbClick}>
 					<div className="app-title">Stopwatch</div>
 					<div className="stopwatch">
 						<DisplayComponent time={time} />
 						<BtnComponent
 							start={handleStart}
+							wait={handleWait}
 							stop={handleStop}
-							reset={handleReset}
 							resume={handleResume}
+							reset={handleReset}
 							status={status}
 						/>
 					</div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function BtnComponent({ start, stop, reset, resume, status }) {
+function BtnComponent({ start, stop, reset, resume, status, dbClick }) {
 	return (
 		<div>
 			{status === 0 ? (
@@ -13,12 +13,12 @@ function BtnComponent({ start, stop, reset, resume, status }) {
 
 			{status === 1 ? (
 				<div>
-					<button className="stopwatch-btn stopwatch-btn-red" onClick={stop}>
-						Stop
+					<button className="stopwatch-btn stopwatch-btn-blu" onClick={dbClick}>
+						Wait
 					</button>
 
-					<button className="stopwatch-btn stopwatch-btn-yel" onClick={reset}>
-						Reset
+					<button className="stopwatch-btn stopwatch-btn-red" onClick={stop}>
+						Stop
 					</button>
 				</div>
 			) : (
